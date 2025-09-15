@@ -1,0 +1,24 @@
+argo-cd:
+  global:
+    logging:
+      format: json
+      level: warn
+    securityContext:
+      fsGroup: 2000
+    additionalLabels:
+      dh_app: argo-cd
+      dh_cc_id: "1001060025"
+      dh_platform: platform
+      dh_squad: continuoues-delivery
+      dh_tribe: developer-platform
+    addPrometheusAnnotations: true
+  controller:
+    metrics:
+      enabled: true
+      service:
+        annotations:
+          prometheus.io/path: "/metrics"
+    podAnnotations:
+      prometheus.io/path: /metrics
+      prometheus.io/port: "8082"
+      prometheus.io/scrape: "true"
