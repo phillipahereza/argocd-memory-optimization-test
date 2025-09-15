@@ -22,3 +22,153 @@ argo-cd:
       prometheus.io/path: /metrics
       prometheus.io/port: "8082"
       prometheus.io/scrape: "true"
+  configs:
+    resource.inclusions: |
+        - apiGroups:
+            - ""
+          kinds:
+            - ConfigMap
+            - Endpoint
+            - Namespace
+            - PersistentVolumeClaim
+            - PersistentVolume
+            - Pod
+            - ReplicationController
+            - ServiceAccount
+            - Service
+            - HorizontalPodAutoscaler
+            - Secret
+          clusters:
+            - "*"
+        - apiGroups:
+            - "extensions"
+          kinds:
+            - Deployment
+            - Ingress
+          clusters:
+            - "*"
+        - apiGroups:
+            - "apps"
+          kinds:
+            - Deployment
+            - ReplicaSet
+            - ReplicationController
+            - StatefulSet
+          clusters:
+            - "*"
+        - apiGroups:
+            - "rbac.authorization.k8s.io"
+          kinds:
+            - ClusterRole
+            - ClusterRoleBinding
+            - RoleBinding
+            - Role
+          clusters:
+            - "*"
+        - apiGroups:
+            - "autoscaling"
+          kinds:
+            - HorizontalPodAutoscaler
+          clusters:
+            - "*"
+        - apiGroups:
+            - batch
+          kinds:
+            - CronJob
+            - Job
+          clusters:
+            - "*"
+        - apiGroups:
+            - "apiextensions.k8s.io"
+          kinds:
+            - CustomResourceDefinition
+          clusters:
+            - "*"
+        - apiGroups:
+            - policy
+          kinds:
+            - PodDisruptionBudget
+          clusters:
+            - "*"
+        - apiGroups:
+            - "networking.k8s.io"
+          kinds:
+            - NetworkPolicy
+            - Ingress
+          clusters:
+            - "*"
+        - apiGroups:
+            - "argoproj.io"
+          kinds:
+            - "*"
+          clusters:
+            - "*"
+        - apiGroups:
+            - "secrets-store.csi.x-k8s.io"
+          kinds:
+            - SecretProviderClass
+            - SecretProviderClassPodStatus
+          clusters:
+            - "*"
+        - apiGroups:
+            - "infra.dh.blueprints.io"
+          kinds:
+            - "*"
+          clusters:
+            - "*"
+        - apiGroups:
+            - "apiextensions.crossplane.io"
+          kinds:
+            - Composition
+            - CompositeResourceDefinition
+          clusters:
+            - "*"
+        - apiGroups: #TODO: Drop then when crossplane is not used anymore.
+            - ec2.aws.crossplane.io
+            - athena.aws.crossplane.io
+            - aws.crossplane.io
+            - cache.aws.crossplane.io
+            - cloudsearch.aws.crossplane.io
+            - database.aws.crossplane.io
+            - dax.aws.crossplane.io
+            - dynamodb.aws.crossplane.io
+            - ecr.aws.crossplane.io
+            - elasticache.aws.crossplane.io
+            - glue.aws.crossplane.io
+            - iam.aws.crossplane.io
+            - kms.aws.crossplane.io
+            - notification.aws.crossplane.io
+            - pkg.crossplane.io
+            - rds.aws.crossplane.io
+            - s3.aws.crossplane.io
+            - secrets.crossplane.io
+            - secretsmanager.aws.crossplane.io
+            - sns.aws.crossplane.io
+            - sqs.aws.crossplane.io
+          kinds:
+            - "*"
+          clusters:
+            - "*"
+        - apiGroups:
+            - applicationautoscaling.services.k8s.aws
+            - dynamodb.services.k8s.aws
+            - ec2.services.k8s.aws
+            - ecr.services.k8s.aws
+            - elasticache.services.k8s.aws
+            - iam.services.k8s.aws
+            - kms.services.k8s.aws
+            - rds.services.k8s.aws
+            - s3.services.k8s.aws
+            - sns.services.k8s.aws
+            - sqs.services.k8s.aws
+          kinds:
+            - "*"
+          clusters:
+            - "*"
+        - apiGroups:
+            - services.k8s.aws
+          kinds:
+            - FieldExport
+            - AdoptedResource
+          clusters:
+            - "*"
