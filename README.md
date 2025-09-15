@@ -1,0 +1,1 @@
+# ArgoCD memory optimization test
