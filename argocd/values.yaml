@@ -22,6 +22,9 @@ argo-cd:
       prometheus.io/path: /metrics
       prometheus.io/port: "8082"
       prometheus.io/scrape: "true"
+    env:
+      - name: GOMEMLIMIT
+        value: "500MiB"
   configs:
     params:
       controller.status.processors: "2"
