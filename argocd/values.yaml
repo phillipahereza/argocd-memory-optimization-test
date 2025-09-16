@@ -23,6 +23,7 @@ argo-cd:
       prometheus.io/port: "8082"
       prometheus.io/scrape: "true"
   configs:
+    resource.ignoreResourceUpdatesEnabled: "true"
     resource.inclusions: |
         - apiGroups:
             - ""
