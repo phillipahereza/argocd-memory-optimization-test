@@ -23,6 +23,9 @@ argo-cd:
       prometheus.io/port: "8082"
       prometheus.io/scrape: "true"
   configs:
+    params:
+      controller.status.processors: "20"
+      controller.operation.processors: "10"
     cm:
       resource.ignoreResourceUpdatesEnabled: "true"
       resource.inclusions: |
