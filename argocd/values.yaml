@@ -24,6 +24,6 @@ argo-cd:
       prometheus.io/scrape: "true"
   configs:
     params:
-      controller.status.processors: "20"
+      controller.status.processors: "2"
       controller.operation.processors: "10"
       controller.profile.enabled: "true"
