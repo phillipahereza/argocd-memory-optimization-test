@@ -26,6 +26,7 @@ argo-cd:
     params:
       controller.status.processors: "2"
       controller.operation.processors: "1"
+      controller.profile.enabled: "true"
     cm:
       resource.ignoreResourceUpdatesEnabled: "true"
       resource.inclusions: |
