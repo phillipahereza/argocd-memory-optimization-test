@@ -25,5 +25,5 @@ argo-cd:
   configs:
     params:
       controller.status.processors: "2"
-      controller.operation.processors: "10"
+      controller.operation.processors: "1"
       controller.profile.enabled: "true"
